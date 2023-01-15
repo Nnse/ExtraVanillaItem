@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace be\nnse\customitem\item;
 
-use be\nnse\api\item\default\CustomBow;
+use be\nnse\api\item\variety\CustomBow;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Location;
 use pocketmine\entity\projectile\Projectile;

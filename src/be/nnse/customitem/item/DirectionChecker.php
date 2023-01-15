@@ -5,20 +5,20 @@ declare(strict_types=1);
 namespace be\nnse\customitem\item;
 
 use be\nnse\api\item\functional\FunctionalItem;
-use pocketmine\item\ItemIds;
+use pocketmine\data\bedrock\item\ItemTypeNames;
 use pocketmine\player\Player;
 
 class DirectionChecker extends FunctionalItem
 {
     public function __construct()
     {
-        parent::__construct(
-            ItemIds::COMPASS,
-            20,
-            "Direction Checker",
-            [ "RMB: Japanese", "LMB: English" ]
-        );
+        parent::__construct("Direction Checker", [ "RMB: Japanese", "LMB: English" ]);
     }
+
+	public function getItemTypeName() : string
+	{
+		return ItemTypeNames::COMPASS;
+	}
 
     public function onUsing(Player $player) : void
     {

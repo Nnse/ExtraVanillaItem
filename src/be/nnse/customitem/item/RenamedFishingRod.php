@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace be\nnse\customitem\item;
 
-use be\nnse\api\item\default\CustomDurable;
-use pocketmine\item\ItemIds;
+use be\nnse\api\item\variety\CustomDurable;
+use pocketmine\data\bedrock\item\ItemTypeNames;
 
 class RenamedFishingRod extends CustomDurable
 {
     public function __construct()
     {
-        parent::__construct(
-            ItemIds::FISHING_ROD,
-            20,
-            "Renamed Fishing Rod"
-        );
+        parent::__construct("Renamed Fishing Rod");
     }
 
-    public function getMaxStackSize() : int
+	public function getItemTypeName() : string
+	{
+		return ItemTypeNames::FISHING_ROD;
+	}
+
+	public function getMaxStackSize() : int
     {
         return 1;
     }

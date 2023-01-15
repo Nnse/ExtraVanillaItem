@@ -6,8 +6,8 @@ namespace be\nnse\customitem\item;
 
 use be\nnse\api\item\functional\FunctionalItem;
 use be\nnse\api\item\trait\PlayerTemporaryDataTrait;
+use pocketmine\data\bedrock\item\ItemTypeNames;
 use pocketmine\entity\Location;
-use pocketmine\item\ItemIds;
 use pocketmine\player\Player;
 
 class PositionStorage extends FunctionalItem
@@ -18,14 +18,15 @@ class PositionStorage extends FunctionalItem
 
     public function __construct()
     {
-        parent::__construct(
-            ItemIds::CLOCK,
-            20,
-            "Position Storage",
-        );
+        parent::__construct("Position Storage");
     }
 
-    public function onUsing(Player $player) : void
+	public function getItemTypeName() : string
+	{
+		return ItemTypeNames::CLOCK;
+	}
+
+	public function onUsing(Player $player) : void
     {
         $location = $player->getLocation();
         $history = $this->getPlayerTemporaryData($player, self::TAG_POS_STORAGE) ?? [];

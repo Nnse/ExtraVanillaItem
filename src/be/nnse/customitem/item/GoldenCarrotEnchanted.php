@@ -4,23 +4,24 @@ declare(strict_types=1);
 
 namespace be\nnse\customitem\item;
 
-use be\nnse\api\item\default\CustomFood;
+use be\nnse\api\item\variety\CustomFood;
+use pocketmine\data\bedrock\item\ItemTypeNames;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\effect\VanillaEffects;
-use pocketmine\item\ItemIds;
 
 class GoldenCarrotEnchanted extends CustomFood
 {
     public function __construct()
     {
-        parent::__construct(
-            ItemIds::GOLDEN_CARROT,
-            20,
-            "Golden Carrot Enchanted"
-        );
+        parent::__construct("Golden Carrot Enchanted");
     }
 
-    public function getAdditionalEffects() : array
+	public function getItemTypeName() : string
+	{
+		return ItemTypeNames::GOLDEN_CARROT;
+	}
+
+	public function getAdditionalEffects() : array
     {
         return [
             new EffectInstance(VanillaEffects::REGENERATION(), 600, 4),

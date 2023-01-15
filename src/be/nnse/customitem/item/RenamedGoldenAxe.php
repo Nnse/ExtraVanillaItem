@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace be\nnse\customitem\item;
 
-use be\nnse\api\item\default\CustomTieredTool;
+use be\nnse\api\item\variety\CustomTieredTool;
 use be\nnse\api\item\trait\VanillaAxeTrait;
-use pocketmine\item\ItemIds;
+use pocketmine\data\bedrock\item\ItemTypeNames;
 use pocketmine\item\ToolTier;
 
 class RenamedGoldenAxe extends CustomTieredTool
@@ -15,11 +15,11 @@ class RenamedGoldenAxe extends CustomTieredTool
 
     public function __construct()
     {
-        parent::__construct(
-            ItemIds::GOLD_AXE,
-            0,
-            ToolTier::GOLD(),
-            "Renamed Golden Axe"
-        );
+        parent::__construct(ToolTier::GOLD(), "Renamed Golden Axe");
     }
+
+	public function getItemTypeName() : string
+	{
+		return ItemTypeNames::GOLDEN_AXE;
+	}
 }

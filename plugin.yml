@@ -1,0 +1,8 @@
+name: ExtraVanillaItem
+main: be\nnse\customitem\Main
+version: 1.0.0
+description: Sample plugin of libCustomItem
+api: 4.0.0
+load: POSTWORLD
+author: Nnse
+# virions: [libCustomItem]
